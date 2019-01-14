@@ -22,19 +22,19 @@ class MasterData:
         self.data_set = data_set
 
     @property
-    def raw_data(self):
+    def raw_data(self) -> pd.DataFrame:
         if self.data_set == 'Boston':
             my_data = load_boston()
             df = pd.DataFrame(my_data.data, columns=my_data.feature_names)
             df['target'] = my_data.target
             return df
-        # elif self.data_set == 'Wine':
-        #     my_data = load_wine()
-        #     df = pd.DataFrame(my_data.data, columns=my_data.feature_names)
-        #     df['target'] = my_data.target
-        #     return df
+        elif self.data_set == 'Wine':
+            my_data = load_wine()
+            df = pd.DataFrame(my_data.data, columns=my_data.feature_names)
+            df['target'] = my_data.target
+            return df
         else:
-            return None
+            return pd.DataFrame(data=[0, 1], index=[1, 1], columns=['data', 'target'])
 
     @property
     def train_test(self) -> list:
