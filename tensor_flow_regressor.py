@@ -60,5 +60,3 @@ original_y.reset_index(drop=True, inplace=True)
 comparison = pd.concat([original_y, out_flattened], axis=1)
 comparison.columns = ['original_y', 'predicted_target']
 comparison['diff'] = comparison['original_y'] - comparison['predicted_target']
-
-a = 'a'
